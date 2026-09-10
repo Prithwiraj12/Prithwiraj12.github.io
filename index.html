@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prithwiraj Bhattacharjee — Applied AI Researcher</title>
+<meta name="description" content="Prithwiraj Bhattacharjee — Assistant Professor & Applied AI Researcher working on low-resource NLP, computer vision & multimodality, and explainable AI for time-series.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE6;
+    --paper-alt:#EBE4D2;
+    --ink:#2A241C;
+    --ink-soft:#5C5344;
+    --indigo:#2B3A67;
+    --indigo-deep:#1B2544;
+    --gold:#A9812F;
+    --line:#D8D0BE;
+    --measure:66ch;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Source Sans 3', -apple-system, Segoe UI, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--indigo);}
+  a:focus-visible, button:focus-visible, summary:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation:none !important; transition:none !important;} }
+
+  .wrap{max-width:900px; margin:0 auto; padding:0 28px;}
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(243,239,230,0.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .navwrap{
+    max-width:900px; margin:0 auto; padding:14px 28px;
+    display:flex; gap:20px; overflow-x:auto;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  nav .navwrap::-webkit-scrollbar{display:none;}
+  nav a{
+    color:var(--ink-soft); text-decoration:none; font-size:14px;
+    font-weight:600; white-space:nowrap; padding:4px 2px;
+    border-bottom:2px solid transparent;
+  }
+  nav a:hover{color:var(--indigo); border-bottom-color:var(--gold);}
+
+  /* ---- Hero ---- */
+  header.hero{
+    padding:56px 0 40px; display:grid; grid-template-columns:1.3fr 1fr;
+    gap:40px; align-items:center;
+  }
+  .hero-photo{
+    aspect-ratio:3/3.4; border-radius:2px; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .eyebrow-name{
+    font-family:var(--serif); font-weight:600; font-size:clamp(2.1rem, 5vw, 3rem);
+    line-height:1.05; margin:0 0 10px; letter-spacing:-0.01em;
+  }
+  .role{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    color:var(--indigo); font-size:1.15rem; margin:0 0 6px;
+  }
+  .place{color:var(--ink-soft); font-size:0.98rem; margin:0 0 24px;}
+  .contact-row{display:flex; flex-wrap:wrap; gap:10px 20px; font-size:0.92rem;}
+  .contact-row a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .contact-row a:hover{border-bottom-color:var(--gold);}
+  @media (max-width:680px){
+    header.hero{grid-template-columns:1fr; padding-top:40px;}
+    .hero-photo{max-width:220px; aspect-ratio:1/1;}
+  }
+
+  /* ---- Collaboration callout ---- */
+  .collab{
+    background:var(--indigo-deep); color:var(--paper);
+    padding:28px 32px; margin-bottom:44px;
+    border-left:4px solid var(--gold);
+    display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;
+  }
+  .collab h2{color:var(--paper); font-size:1.3rem; margin:0 0 6px; padding-bottom:0;}
+  .collab h2::after{display:none;}
+  .collab p{margin:0; color:#D9D3C3; font-size:0.95rem; max-width:48ch;}
+  .collab .btn{
+    display:inline-block; background:var(--gold); color:var(--indigo-deep);
+    font-weight:700; font-size:0.92rem; text-decoration:none;
+    padding:11px 22px; border-radius:2px; white-space:nowrap;
+  }
+  .collab .btn:hover{background:#c49a3f;}
+
+  /* ---- Section shell ---- */
+  section{padding:44px 0;}
+  section + section{border-top:1px solid var(--line);}
+  h2{
+    font-family:var(--serif); font-weight:600; font-size:1.55rem;
+    margin:0 0 6px; position:relative; padding-bottom:14px;
+  }
+  h2::after{content:""; position:absolute; left:0; bottom:0; width:38px; height:3px; background:var(--gold);}
+  .section-note{color:var(--ink-soft); font-size:0.95rem; max-width:var(--measure); margin:0 0 26px;}
+
+  h3.theme{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    color:var(--indigo-deep); font-size:1.1rem; margin:32px 0 16px;
+  }
+  h3.theme:first-of-type{margin-top:0;}
+
+  .lede{
+    font-family:var(--serif); font-size:1.15rem; font-style:italic;
+    color:var(--indigo-deep); max-width:var(--measure); margin:0 0 18px; line-height:1.5;
+  }
+  .prose{max-width:var(--measure); color:var(--ink-soft);}
+  .prose p{margin:0 0 14px;}
+
+  /* ---- Publications ---- */
+  .publist{list-style:none; margin:0; padding:0;}
+  .publist li{padding:16px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:28px 1fr; gap:14px;}
+  .publist li:last-child{border-bottom:none;}
+  .publist .pnum{font-family:var(--serif); font-style:italic; color:var(--gold); font-size:0.95rem; padding-top:2px;}
+  .publist .ptitle{font-weight:700; font-size:0.98rem; line-height:1.4;}
+  .publist .pauthors{color:var(--ink-soft); font-size:0.88rem; margin:3px 0;}
+  .publist .pvenue{color:var(--ink-soft); font-size:0.88rem; font-style:italic;}
+  .publist .plink{font-size:0.85rem; margin-left:8px;}
+  .publist .pstatus{font-size:0.78rem; color:var(--indigo); font-weight:700; margin-left:8px;}
+  .solo-tag{
+    display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.02em;
+    color:var(--indigo); border:1px solid var(--indigo); border-radius:2px;
+    padding:1px 6px; margin-left:8px; vertical-align:middle;
+  }
+
+  /* ---- Ongoing research (collapsible) ---- */
+  details.ongoing{border:1px solid var(--line); padding:4px 22px 22px;}
+  details.ongoing summary{
+    cursor:pointer; list-style:none; padding:18px 0;
+    font-family:var(--serif); font-weight:600; font-size:1.2rem; color:var(--ink);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  details.ongoing summary::-webkit-details-marker{display:none;}
+  details.ongoing summary::after{
+    content:"+"; font-family:var(--sans); font-weight:700; font-size:1.3rem;
+    color:var(--gold); margin-left:12px; transition:transform 0.15s ease;
+  }
+  details.ongoing[open] summary::after{content:"–";}
+  details.ongoing .section-note{margin-top:-6px;}
+
+  .workimg{
+    aspect-ratio:16/10; background:var(--paper-alt); border:1px solid var(--line);
+    position:relative; overflow:hidden; margin-bottom:14px;
+  }
+  .workimg img{width:100%; height:100%; object-fit:cover; display:block;}
+  .workimg.noimg::after{
+    content:"Add photo — " attr(data-placeholder);
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:14px; font-size:0.74rem; color:var(--ink-soft);
+    font-family:monospace;
+    background:repeating-linear-gradient(135deg, var(--paper-alt), var(--paper-alt) 9px, var(--paper) 9px, var(--paper) 18px);
+  }
+  .workgrid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px;}
+  @media (max-width:820px){.workgrid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.workgrid{grid-template-columns:1fr;}}
+  .workcard h4{font-family:var(--serif); font-weight:600; font-size:1.02rem; margin:0 0 4px;}
+  .workcard .wsub{color:var(--ink-soft); font-size:0.9rem; margin:0 0 10px; line-height:1.45;}
+  .workcard .wstudents{color:var(--indigo); font-weight:600; display:block; margin-bottom:3px; font-size:0.86rem;}
+  .status{
+    display:inline-block; font-size:0.72rem; font-weight:700; letter-spacing:0.02em;
+    color:var(--gold); border:1px solid var(--gold); border-radius:2px;
+    padding:2px 7px; margin-top:8px;
+  }
+
+  /* ---- Timeline (experience + education) ---- */
+  .timeline{list-style:none; margin:0; padding:0; border-left:2px solid var(--line); margin-left:6px;}
+  .tl-item{position:relative; padding:2px 0 30px 26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-7px; top:6px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--indigo);
+  }
+  .tl-role{font-weight:700; font-size:1.02rem;}
+  .tl-org{color:var(--indigo); font-weight:600;}
+  .tl-meta{color:var(--ink-soft); font-size:0.9rem; margin:2px 0 8px;}
+  .tl-item ul{margin:0; padding-left:20px; color:var(--ink-soft); font-size:0.96rem;}
+  .tl-item li{margin:3px 0;}
+
+  /* ---- Skills ---- */
+  .skillgrid{display:grid; grid-template-columns:1fr 1fr; gap:24px 32px;}
+  .skillgroup h3{font-size:0.95rem; font-weight:700; margin:0 0 4px; color:var(--indigo-deep);}
+  .skillgroup .lvl{font-size:0.78rem; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:0.03em;}
+  .skillgroup p{margin:6px 0 0; color:var(--ink-soft); font-size:0.94rem;}
+  @media (max-width:560px){.skillgrid{grid-template-columns:1fr;}}
+
+  /* ---- Simple lists (awards, languages) ---- */
+  .plainlist{list-style:none; margin:0; padding:0;}
+  .plainlist li{padding:12px 0; border-bottom:1px solid var(--line);}
+  .plainlist li:last-child{border-bottom:none;}
+  .plainlist .t{font-weight:700;}
+  .plainlist .s{color:var(--ink-soft); font-size:0.92rem; display:block; margin-top:2px;}
+
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  @media (max-width:620px){.twocol{grid-template-columns:1fr;}}
+
+  .ref .name{font-weight:700;}
+  .ref .role{color:var(--ink-soft); font-size:0.92rem; font-style:normal;}
+
+  /* ---- Footer ---- */
+  footer{padding:44px 0 60px; text-align:left;}
+  footer .contact-row{margin-bottom:18px;}
+  footer .fine{color:var(--ink-soft); font-size:0.85rem;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navwrap">
+    <a href="#publications">Publications</a>
+    <a href="#research">Ongoing Research</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <h1 class="eyebrow-name">Prithwiraj Bhattacharjee</h1>
+      <p class="role">Assistant Professor &amp; Applied AI Researcher</p>
+      <p class="place">Dept. of Computer Science &amp; Engineering, Leading University, Sylhet, Bangladesh</p>
+      <div class="contact-row">
+        <a href="mailto:prithwirajbhattacharjee2@gmail.com">prithwirajbhattacharjee2@gmail.com</a>
+        <a href="https://github.com/Prithwiraj12" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=JmxQ4FwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/img/profile.jpg" alt="Portrait of Prithwiraj Bhattacharjee">
+    </div>
+  </header>
+
+  <div class="collab">
+    <div>
+      <h2>Open to Research Collaboration</h2>
+      <p>I'm always glad to hear from researchers, students, and institutions working on low-resource NLP, computer vision, multimodal AI, or explainable machine learning. If you're exploring a joint paper, dataset, or project, get in touch.</p>
+    </div>
+    <a class="btn" href="mailto:prithwirajbhattacharjee2@gmail.com?subject=Research%20Collaboration">Email me</a>
+  </div>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <p class="section-note">Manuscripts in review, grouped by research theme, followed by accepted and published work. Each entry links to a public version where one is available.</p>
+
+    <h3 class="theme">Submitted &amp; Under Review — LLM &amp; NLP</h3>
+    <ol class="publist">
+      <li>
+        <span class="pnum">01</span>
+        <div>
+          <div class="ptitle">Keyword Augmentation as Calibration in Zero-Shot Topic Classification <span class="solo-tag">Solo</span> <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Bhattacharjee, P.</div>
+          <div class="pvenue">ECTI Transactions on Computer and Information Technology (ECTI-CIT) — in double-blind review</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">02</span>
+        <div>
+          <div class="ptitle">A Label-Free Method for Choosing Per-Topic Decision Thresholds in Zero-Shot Multi-Label Text Classification <span class="solo-tag">Solo</span> <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Bhattacharjee, P.</div>
+          <div class="pvenue">IJRD</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">03</span>
+        <div>
+          <div class="ptitle">Bridging the SFT-RL Gap: Sequential Policy Optimization for Low-Resource Bangla Text Summarization <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Chowdhury, P., Ahmed, I., Bhattacharjee, P.</div>
+          <div class="pvenue">ACM Transactions on Asian and Low-Resource Language Information Processing — Q2</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">04</span>
+        <div>
+          <div class="ptitle">Beyond Zero-Shot: Efficient Low-Resource Emotion Detection via Weakly Supervised Deep Clustering <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Amin, A., Nuzahat, Bhattacharjee, P.</div>
+          <div class="pvenue">International Conference on Computer and Information Technology (ICCIT), 2026</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="theme">Submitted &amp; Under Review — Computer Vision &amp; Multimodality</h3>
+    <ol class="publist">
+      <li>
+        <span class="pnum">01</span>
+        <div>
+          <div class="ptitle">GenDet-M: A Multimodal Ensemble Architecture for Detecting High-Fidelity Synthetic Video <span class="pstatus">With editor</span></div>
+          <div class="pauthors">Hussain, R., Rahman, M., Bhattacharjee, P.</div>
+          <div class="pvenue">Machine Vision and Applications — Q2</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="theme">Submitted &amp; Under Review — AI &amp; Time-Series Explainability</h3>
+    <ol class="publist">
+      <li>
+        <span class="pnum">01</span>
+        <div>
+          <div class="ptitle">A Bi-GRU Tri-modal Framework for Ethereum Price Prediction for Multi-day Horizon <span class="pstatus">Under review</span></div>
+          <div class="pauthors">Barman, D., Tahsin, N., Bhattacharjee, P.</div>
+          <div class="pvenue">SN Computer Science</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">02</span>
+        <div>
+          <div class="ptitle">Hydroclimatic Drivers of River Degradation: An Explainable Ensemble Learning Framework for Water Quality in Dhaka <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Sinha, P., Debnath, N., Bhattacharjee, P.</div>
+          <div class="pvenue">Water, Air, &amp; Soil Pollution — Q2</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">03</span>
+        <div>
+          <div class="ptitle">AeroHealth: An Explainable AI Framework for Assessing PM2.5 Health Risk <span class="pstatus">Under review</span></div>
+          <div class="pauthors">Mohuya, Bhattacharjee, P.</div>
+          <div class="pvenue">Environmental Monitoring and Assessment</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">04</span>
+        <div>
+          <div class="ptitle">Socioeconomic Equity of Tea Garden Workers: A Composite Financial Inclusion Index via Explainable AI <span class="pstatus">Submitted</span></div>
+          <div class="pauthors">Nirob, Choity, Bhattacharjee, P.</div>
+          <div class="pvenue">International Conference on Computer and Information Technology (ICCIT), 2026</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="theme">Accepted</h3>
+    <ol class="publist">
+      <li>
+        <span class="pnum">01</span>
+        <div>
+          <div class="ptitle">RoadGuard: A Real-Time Mobile-Based Road-Hazard Detection, Warning, and Hazard-Aware Route Recommendation System for Road Users and Vehicles</div>
+          <div class="pauthors">Mashrafi, A. S., Rabbi, M. A. S., Rajib, A. T., Bhattacharjee, P.</div>
+          <div class="pvenue">Systems and Soft Computing, Elsevier</div>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="theme">Published</h3>
+    <ol class="publist">
+      <li>
+        <span class="pnum">01</span>
+        <div>
+          <div class="ptitle">LightTeaNet: A Weakly Supervised Lightweight CNN for Multi-Label Tea Leaf Disease Detection and Localization <a class="plink" href="https://doi.org/10.1007/s00521-026-12329-z" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Haider Chowdhury, N., Rahim, M., Hasan, S. F., Hasan, M., Bhattacharjee, P.</div>
+          <div class="pvenue">Neural Computing and Applications, Springer, 2026 — Q1</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">02</span>
+        <div>
+          <div class="ptitle">Bengali Abstractive News Summarization (BANS): A Neural Attention Approach <a class="plink" href="https://doi.org/10.1007/978-981-33-4673-4_4" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Bhattacharjee, P., Mallick, A., Islam, M. S., Jannat, M.</div>
+          <div class="pvenue">Proc. International Conference on Trends in Computational and Cognitive Engineering, Springer AISC vol. 1309, 2021</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">03</span>
+        <div>
+          <div class="ptitle">A Bangla Text-to-Speech System using Deep Neural Networks <a class="plink" href="https://ieeexplore.ieee.org/document/9084052/" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Raju, R. S., Bhattacharjee, P., Ahmad, A., Rahman, M. S.</div>
+          <div class="pvenue">International Conference on Bangla Speech and Language Processing (ICBSLP), IEEE, 2019</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">04</span>
+        <div>
+          <div class="ptitle">End-to-End Bangla Speech Synthesis <a class="plink" href="https://arxiv.org/abs/2108.00500" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Bhattacharjee, P., Raju, R. S., Ahmad, A., Rahman, M. S.</div>
+          <div class="pvenue">International Conference on Science &amp; Contemporary Technologies (ICSCT), IEEE, 2021</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">05</span>
+        <div>
+          <div class="ptitle">Pointer over Attention: Improved Bangla Text Summarization Using Hybrid Pointer Generator Network <a class="plink" href="https://arxiv.org/abs/2111.10269" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Dhar, N., Saha, G., Bhattacharjee, P., Mallick, A., Islam, M. S.</div>
+          <div class="pvenue">24th International Conference on Computer and Information Technology (ICCIT), IEEE, 2021</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">06</span>
+        <div>
+          <div class="ptitle">AgriCast: Weather-Based Forecasting of Staple Crop Prices with Machine Learning and Deep Learning <a class="plink" href="https://ieeexplore.ieee.org/document/11491488" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Debnath, N., Sinha, P., Bhattacharjee, P.</div>
+          <div class="pvenue">28th International Conference on Computer and Information Technology (ICCIT), IEEE, 2025</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">07</span>
+        <div>
+          <div class="ptitle">SentiTube: YouTube Comment-Based Bangla Sentiment Analysis Dataset <a class="plink" href="https://doi.org/10.1109/STI69347.2025.11367591" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Rahman, A., Mahbub, A., Paul, B. N., Bhattacharjee, P., Akhtaruzzaman, M.</div>
+          <div class="pvenue">7th IEEE International Conference on Sustainable Technologies for Industry 5.0 (STI), 2025</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">08</span>
+        <div>
+          <div class="ptitle">MultiBanAbs: A Comprehensive Multi-Domain Bangla Abstractive Text Summarization Dataset <a class="plink" href="https://arxiv.org/abs/2511.19317" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Ferdous, M. T., Chowdhury, N. A., Bhattacharjee, P.</div>
+          <div class="pvenue">Trends in Computational and Cognitive Engineering, Springer LNNS, 2026</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">09</span>
+        <div>
+          <div class="ptitle">Toward Generalized Detection of Synthetic Media: Limitations, Challenges, and the Path to Multimodal Solutions <a class="plink" href="https://arxiv.org/abs/2511.11116" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Hussain, R., Rahman, M., Bhattacharjee, P.</div>
+          <div class="pvenue">Trends in Computational and Cognitive Engineering, Springer LNNS, 2026</div>
+        </div>
+      </li>
+      <li>
+        <span class="pnum">10</span>
+        <div>
+          <div class="ptitle">BloomNet: Exploring Single vs. Multiple Object Annotation for Flower Recognition Using YOLO Variants <a class="plink" href="https://arxiv.org/abs/2602.18585" target="_blank" rel="noopener">[link]</a></div>
+          <div class="pauthors">Nusrat, S., Bhattacharjee, P.</div>
+          <div class="pvenue">Trends in Computational and Cognitive Engineering, Springer LNNS, 2026</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="research">
+    <h2>Ongoing Research</h2>
+    <details class="ongoing">
+      <summary>Active student-supervised projects (click to expand)</summary>
+      <p class="section-note">Work still in progress, with no manuscript submitted yet. Student collaborators are credited on each card.</p>
+
+      <h3 class="theme">LLM &amp; NLP</h3>
+      <div class="workgrid">
+        <div class="workcard">
+          <div class="workimg noimg" data-placeholder="assets/work/emoji-recommendation.jpg">
+            <img src="assets/work/emoji-recommendation.jpg" alt="Emoji recommendation project" onerror="this.style.display='none';">
+          </div>
+          <h4>Emoji Recommendation for Educational Notifications</h4>
+          <p class="wsub">HCI-driven dataset construction and user-centric recommendation modeling.</p>
+          <span class="wstudents">Shahida, Rayhan, Tasnia</span>
+          <span class="status">In progress</span>
+        </div>
+      </div>
+
+      <h3 class="theme">Computer Vision &amp; Multimodality</h3>
+      <div class="workgrid">
+        <div class="workcard">
+          <div class="workimg noimg" data-placeholder="assets/work/antenatal-care.jpg">
+            <img src="assets/work/antenatal-care.jpg" alt="Data-driven antenatal care project" onerror="this.style.display='none';">
+          </div>
+          <h4>Data-Driven Antenatal Care</h4>
+          <p class="wsub">Complication detection and treatment prediction on a proprietary 500-patient clinical dataset.</p>
+          <span class="wstudents">Sultana, Anjuman</span>
+          <span class="status">In progress</span>
+        </div>
+      </div>
+
+      <h3 class="theme">AI &amp; Time-Series Explainability</h3>
+      <div class="workgrid">
+        <div class="workcard">
+          <div class="workimg noimg" data-placeholder="assets/work/crossasd.jpg">
+            <img src="assets/work/crossasd.jpg" alt="CrossASD screening project" onerror="this.style.display='none';">
+          </div>
+          <h4>CrossASD</h4>
+          <p class="wsub">A fair, minimal-feature ML framework for autism spectrum disorder screening.</p>
+          <span class="wstudents">Sadia Jannat</span>
+          <span class="status">In progress</span>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lede">Applied AI research focused on low-resource language processing, explainable machine learning, and practical LLM applications — with Bangla as a primary focus area.</p>
+    <div class="prose">
+      <p>I am an Assistant Professor in the Department of Computer Science &amp; Engineering at Leading University, Sylhet, Bangladesh, where I work as an applied AI researcher focused on low-resource language processing and practical applications of large language models. My research builds efficient, data-driven models for language reasoning, text modeling, and speech processing in resource-constrained NLP settings. I also work on explainable AI and time-series modeling as supporting tools for real-world machine learning applications in healthcare, agriculture, and environmental monitoring.</p>
+      <p>I completed my MSc and BSc (Engg.) in Computer Science &amp; Engineering at Shahjalal University of Science &amp; Technology (SUST), Sylhet, both with distinction. I currently serve as Principal Investigator on more than ten concurrent research projects spanning multimodal AI, clinical screening tools, and explainable machine learning, and I teach Advanced Machine Learning, Artificial Intelligence, and NLP at the graduate and undergraduate level.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li class="tl-item">
+        <div class="tl-role">Assistant Professor</div>
+        <div class="tl-org">Leading University</div>
+        <div class="tl-meta">Dept. of Computer Science &amp; Engineering · Sylhet, Bangladesh · Nov 2025 – Present</div>
+        <ul>
+          <li>PI for 10+ concurrent research projects spanning multimodal AI, clinical screening, and explainable AI</li>
+          <li>Teaches Advanced Machine Learning, Artificial Intelligence, NLP, and Numerical Methods</li>
+          <li>Convener, Departmental Routine Committee</li>
+        </ul>
+      </li>
+      <li class="tl-item">
+        <div class="tl-role">Lecturer</div>
+        <div class="tl-org">Leading University</div>
+        <div class="tl-meta">Dept. of Computer Science &amp; Engineering · Sylhet, Bangladesh · Feb 2021 – Oct 2025</div>
+        <ul>
+          <li>Taught Data Structures, Computer Algorithms, OOP, Python, and Discrete Mathematics</li>
+        </ul>
+      </li>
+      <li class="tl-item">
+        <div class="tl-role">Adjunct Lecturer</div>
+        <div class="tl-org">Sylhet International University</div>
+        <div class="tl-meta">Dept. of Computer Science &amp; Engineering · Sylhet, Bangladesh · Jul 2020 – Dec 2020</div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-role">ACM Programming Instructor &amp; Head Coach</div>
+        <div class="tl-org">Leading University</div>
+        <div class="tl-meta">Sylhet, Bangladesh · May 2022 – Oct 2024</div>
+        <ul>
+          <li>Mentored 100+ students in advanced algorithmic problem-solving</li>
+          <li>Head coach for teams at ACM ICPC Dhaka Regional (2021, 2023), JU NCPC (2023), IUT IUPC (2024), and BUET IUPC (2023)</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul class="timeline">
+      <li class="tl-item">
+        <div class="tl-role">MSc, Computer Science &amp; Engineering</div>
+        <div class="tl-org">Shahjalal University of Science &amp; Technology (SUST)</div>
+        <div class="tl-meta">Sylhet, Bangladesh · Oct 2020 – Dec 2021 · 3.85/4.00, With Distinction</div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-role">BSc (Engg.), Computer Science &amp; Engineering</div>
+        <div class="tl-org">Shahjalal University of Science &amp; Technology (SUST)</div>
+        <div class="tl-meta">Sylhet, Bangladesh · Dec 2015 – Dec 2019 · 3.86/4.00, With Distinction</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skillgrid">
+      <div class="skillgroup">
+        <h3>Programming Languages <span class="lvl">Expert</span></h3>
+        <p>C/C++, Python, Java, JavaScript, PHP, C#</p>
+      </div>
+      <div class="skillgroup">
+        <h3>AI/ML Frameworks <span class="lvl">Expert</span></h3>
+        <p>PyTorch, TensorFlow, Hugging Face Transformers, LLM fine-tuning (LoRA/Adapters, PPO, RLHF), RAG, SHAP analysis, statistical testing</p>
+      </div>
+      <div class="skillgroup">
+        <h3>Computer Vision <span class="lvl">Advanced</span></h3>
+        <p>YOLO, CNNs, CAM, object detection, image classification, localization, multimodal fusion, TensorFlow Lite</p>
+      </div>
+      <div class="skillgroup">
+        <h3>Tools &amp; Platforms <span class="lvl">Advanced</span></h3>
+        <p>Django, Laravel, ReactJS, ExpressJS, Docker, Unity, Git, LaTeX</p>
+      </div>
+      <div class="skillgroup">
+        <h3>Databases &amp; OS <span class="lvl">Advanced</span></h3>
+        <p>MongoDB, MySQL, Firebase, Linux</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards">
+    <h2>Awards</h2>
+    <ul class="plainlist">
+      <li><span class="t">Talent Pool Board Scholarship</span><span class="s">Bangladesh Board of Education · 2013 · Ranked 2nd in district</span></li>
+      <li><span class="t">Government Board Scholarship</span><span class="s">Bangladesh Board of Education · 2015</span></li>
+      <li><span class="t">Government Board Scholarship</span><span class="s">Bangladesh Board of Education · 2010</span></li>
+      <li><span class="t">Government Board Scholarship</span><span class="s">Bangladesh Board of Education · 2007</span></li>
+    </ul>
+  </section>
+
+  <section id="languages">
+    <h2>Languages &amp; Interests</h2>
+    <div class="twocol">
+      <div>
+        <ul class="plainlist">
+          <li><span class="t">English</span><span class="s">IELTS Academic — Overall 7.0 (Speaking 7.5, Listening 7.5, Reading 7.0, Writing 6.0)</span></li>
+          <li><span class="t">Bengali</span><span class="s">Native speaker</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="prose">Low-resource NLP, LLM applications, explainable AI, computer vision, time-series modeling.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="references">
+    <h2>References</h2>
+    <div class="twocol">
+      <div class="ref">
+        <div class="name">Dr. Mohammad Shahidur Rahman</div>
+        <div class="role">Professor, Dept. of CSE, Shahjalal University of Science and Technology, Sylhet</div>
+        <div class="role"><a href="mailto:rahmanms@sust.edu">rahmanms@sust.edu</a></div>
+      </div>
+      <div class="ref">
+        <div class="name">Dr. Md Sadek Ferdous</div>
+        <div class="role">Professor, Dept. of CSE, Brac University, Dhaka</div>
+        <div class="role"><a href="mailto:sadek.ferdous@bracu.ac.bd">sadek.ferdous@bracu.ac.bd</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Get in touch</h2>
+    <div class="contact-row">
+      <a href="mailto:prithwirajbhattacharjee2@gmail.com">prithwirajbhattacharjee2@gmail.com</a>
+      <a href="https://github.com/Prithwiraj12" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=JmxQ4FwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    </div>
+    <p class="fine">© 2026 Prithwiraj Bhattacharjee.</p>
+  </footer>
+
+</div>
+</body>
+</html>
