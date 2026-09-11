@@ -48,9 +48,12 @@
   }
   nav .navwrap{
     max-width:900px; margin:0 auto; padding:14px 28px;
-    display:flex; justify-content:center; gap:20px; overflow-x:auto;
+    display:flex; justify-content:flex-end; gap:20px; overflow-x:auto;
     -ms-overflow-style:none; scrollbar-width:none;
   }
+  @media (max-width:600px){
+  nav .navwrap{justify-content:flex-start;}
+}
   nav .navwrap::-webkit-scrollbar{display:none;}
   nav a{
     color:var(--ink-soft); text-decoration:none; font-size:14px;
