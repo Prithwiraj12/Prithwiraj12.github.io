@@ -97,6 +97,23 @@
     .hero-photo{max-width:220px; aspect-ratio:1/1;}
   }
 
+  /* ---- News ---- */
+  .newslist{list-style:none; margin:0; padding:0;}
+  .newslist li{
+    display:grid; grid-template-columns:96px 1fr; gap:16px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .newslist li:last-child{border-bottom:none;}
+  .newslist .ndate{
+    font-family:var(--serif); font-style:italic; color:var(--gold);
+    font-size:0.85rem; padding-top:1px; white-space:nowrap;
+  }
+  .newslist .ntext{font-size:0.95rem;}
+  .newslist .ntext em{font-style:italic; color:var(--ink-soft);}
+  @media (max-width:480px){
+    .newslist li{grid-template-columns:1fr; gap:2px;}
+  }
+
   /* ---- Collaboration callout ---- */
   .collab{
     background:var(--indigo-deep); color:var(--paper);
@@ -141,6 +158,24 @@
   .publist{list-style:none; margin:0; padding:0;}
   .publist li{padding:16px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:28px 1fr; gap:14px;}
   .publist li:last-child{border-bottom:none;}
+  .publist.haspix li{grid-template-columns:76px 28px 1fr;}
+  .pubthumb{
+    width:76px; height:96px; align-self:start; flex-shrink:0;
+    background:var(--paper-alt); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .pubthumb img{max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block;}
+  .pubthumb.noimg::after{
+    content:"+";
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem; font-weight:300; color:var(--line);
+    background:repeating-linear-gradient(135deg, var(--paper-alt), var(--paper-alt) 8px, var(--paper) 8px, var(--paper) 16px);
+  }
+  @media (max-width:560px){
+    .publist.haspix li{grid-template-columns:56px 22px 1fr; gap:10px;}
+    .pubthumb{width:56px; height:74px;}
+  }
   .publist .pnum{font-family:var(--serif); font-style:italic; color:var(--gold); font-size:0.95rem; padding-top:2px;}
   .publist .ptitle{font-weight:700; font-size:0.98rem; line-height:1.4;}
   .publist .pauthors{color:var(--ink-soft); font-size:0.88rem; margin:3px 0;}
@@ -238,6 +273,7 @@
 <nav>
   <div class="navwrap">
     <a href="#top">Home</a>
+    <a href="#news">News</a>
     <a href="#publications">Publications</a>
     <a href="#research">Ongoing Research</a>
     <a href="#about">About</a>
@@ -273,8 +309,6 @@
       <img src="assets/img/profile.jpg" alt="Portrait of Prithwiraj Bhattacharjee">
     </div>
   </header>
-
-
 
   <div class="collab">
     <div>
@@ -385,8 +419,9 @@
     </ol> -->
 
     <h3 class="theme">Published</h3>
-    <ol class="publist">
+    <ol class="publist haspix">
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-lightteanet.png"><img src="assets/img/pub-lightteanet.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">01</span>
         <div>
           <div class="ptitle">LightTeaNet: A Weakly Supervised Lightweight CNN for Multi-Label Tea Leaf Disease Detection and Localization <a class="plink" href="https://doi.org/10.1007/s00521-026-12329-z" target="_blank" rel="noopener">[link]</a></div>
@@ -395,6 +430,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-bans.png"><img src="assets/img/pub-bans.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">02</span>
         <div>
           <div class="ptitle">Bengali Abstractive News Summarization (BANS): A Neural Attention Approach <a class="plink" href="https://doi.org/10.1007/978-981-33-4673-4_4" target="_blank" rel="noopener">[link]</a></div>
@@ -403,6 +439,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-tts-dnn.png"><img src="assets/img/pub-tts-dnn.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">03</span>
         <div>
           <div class="ptitle">A Bangla Text-to-Speech System using Deep Neural Networks <a class="plink" href="https://ieeexplore.ieee.org/document/9084052/" target="_blank" rel="noopener">[link]</a></div>
@@ -411,6 +448,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-roadguard.png"><img src="assets/img/pub-roadguard.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">04</span>
         <div>
           <div class="ptitle">RoadGuard: A Real-Time Mobile-Based Road-Hazard Detection, Warning, and Hazard-Aware Route Recommendation System for Road Users and Vehicles<a class="plink" href="https://www.sciencedirect.com/science/article/pii/S2772941926001791" target="_blank" rel="noopener">[link]</a></div>
@@ -419,6 +457,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-e2e-tts.png"><img src="assets/img/pub-e2e-tts.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">05</span>
         <div>
           <div class="ptitle">End-to-End Bangla Speech Synthesis <a class="plink" href="https://arxiv.org/abs/2108.00500" target="_blank" rel="noopener">[link]</a></div>
@@ -427,6 +466,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-pointer-attention.png"><img src="assets/img/pub-pointer-attention.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">06</span>
         <div>
           <div class="ptitle">Pointer over Attention: Improved Bangla Text Summarization Using Hybrid Pointer Generator Network <a class="plink" href="https://arxiv.org/abs/2111.10269" target="_blank" rel="noopener">[link]</a></div>
@@ -435,6 +475,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-agricast.png"><img src="assets/img/pub-agricast.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">07</span>
         <div>
           <div class="ptitle">AgriCast: Weather-Based Forecasting of Staple Crop Prices with Machine Learning and Deep Learning <a class="plink" href="https://ieeexplore.ieee.org/document/11491488" target="_blank" rel="noopener">[link]</a></div>
@@ -443,6 +484,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-sentitube.png"><img src="assets/img/pub-sentitube.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">08</span>
         <div>
           <div class="ptitle">SentiTube: YouTube Comment-Based Bangla Sentiment Analysis Dataset <a class="plink" href="https://doi.org/10.1109/STI69347.2025.11367591" target="_blank" rel="noopener">[link]</a></div>
@@ -451,6 +493,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-multibanabs.png"><img src="assets/img/pub-multibanabs.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">09</span>
         <div>
           <div class="ptitle">MultiBanAbs: A Comprehensive Multi-Domain Bangla Abstractive Text Summarization Dataset <a class="plink" href="https://arxiv.org/abs/2511.19317" target="_blank" rel="noopener">[link]</a></div>
@@ -459,6 +502,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-synthetic-media-review.png"><img src="assets/img/pub-synthetic-media-review.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">10</span>
         <div>
           <div class="ptitle">Toward Generalized Detection of Synthetic Media: Limitations, Challenges, and the Path to Multimodal Solutions <a class="plink" href="https://arxiv.org/abs/2511.11116" target="_blank" rel="noopener">[link]</a></div>
@@ -467,6 +511,7 @@
         </div>
       </li>
       <li>
+        <div class="pubthumb noimg" data-placeholder="assets/img/pub-bloomnet.png"><img src="assets/img/pub-bloomnet.png" alt="" onerror="this.style.display='none';"></div>
         <span class="pnum">11</span>
         <div>
           <div class="ptitle">BloomNet: Exploring Single vs. Multiple Object Annotation for Flower Recognition Using YOLO Variants <a class="plink" href="https://arxiv.org/abs/2602.18585" target="_blank" rel="noopener">[link]</a></div>
@@ -475,6 +520,24 @@
         </div>
       </li>
     </ol>
+  </section>
+
+  <section id="news">
+    <h2>News</h2>
+    <ul class="newslist">
+      <li>
+        <span class="ndate">Sep 2026</span>
+        <div class="ntext"><em>RoadGuard</em> accepted for publication in Systems and Soft Computing, Elsevier.</div>
+      </li>
+      <li>
+        <span class="ndate">Jul 2026</span>
+        <div class="ntext"><em>LightTeaNet</em> accepted for publication in Neural Computing and Applications, Springer.</div>
+      </li>
+      <li>
+        <span class="ndate">Nov 2025</span>
+        <div class="ntext">Promoted to Assistant Professor, Dept. of Computer Science &amp; Engineering, Leading University.</div>
+      </li>
+    </ul>
   </section>
 
     <section id="research">
