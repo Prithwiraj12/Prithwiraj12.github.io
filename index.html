@@ -63,7 +63,7 @@
   nav a:hover{color:var(--indigo); border-bottom-color:var(--gold);}
 
   /* ---- Hero ---- */
-  .about-inline{color:var(--ink-soft); font-size:0.98rem; line-height:1.65; margin-top:18px;}
+  .about-inline{color:var(--ink-soft); font-size:0.98rem; line-height:1.65; margin-top:18px; text-align:justify;}
 .hero-right{display:flex; flex-direction:column; gap:14px;}
 .hero-icons{justify-content:center;}
   header.hero{
@@ -138,10 +138,6 @@
     padding:11px 22px; border-radius:2px; white-space:nowrap;
   }
   .collab .btn:hover{background:#c49a3f;}
-  @media (max-width:680px){
-    .collab{flex-direction:column; align-items:flex-start; padding:24px;}
-    .collab p{max-width:100%;}
-  }
 
   /* ---- Section shell ---- */
   section{padding:44px 0;}
@@ -724,11 +720,18 @@
   </section>
 
   <section id="languages">
-    <h2>Languages</h2>
-    <ul class="plainlist">
-      <li><span class="t">English</span><span class="s">IELTS Academic — Overall 7.0 (Speaking 7.5, Listening 7.5, Reading 7.0, Writing 6.0)</span></li>
-      <li><span class="t">Bengali</span><span class="s">Native speaker</span></li>
-    </ul>
+    <h2>Languages &amp; Interests</h2>
+    <div class="twocol">
+      <div>
+        <ul class="plainlist">
+          <li><span class="t">English</span><span class="s">IELTS Academic — Overall 7.0 (Speaking 7.5, Listening 7.5, Reading 7.0, Writing 6.0)</span></li>
+          <li><span class="t">Bengali</span><span class="s">Native speaker</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="prose">Graph-Rag, LLM applications, explainability, computer vision and multimodality, time-series modeling.</p>
+      </div>
+    </div>
   </section>
 
   <section id="references">
