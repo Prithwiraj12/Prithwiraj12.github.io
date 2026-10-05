@@ -272,11 +272,7 @@
   footer .fine{color:var(--ink-soft); font-size:0.85rem;}
 </style>
 </head>
-<script>
-document.querySelectorAll('.pauthors').forEach(el => {
-  el.innerHTML = el.innerHTML.replace(/Bhattacharjee, Prithwiraj\./g, '<strong>Bhattacharjee, Prithwiraj.</strong>');
-});
-</script>
+
 <body id="top">
 
 <nav>
@@ -339,7 +335,7 @@ document.querySelectorAll('.pauthors').forEach(el => {
       <li>
         <span class="pnum">01</span>
         <div>
-          <div class="ptitle">Keyword Augmentation as Calibration in Zero-Shot Topic Classification <span class="solo-tag">Solo</span> <span class="pstatus">Under Review</span></div>
+          <div class="ptitle">Keyword Augmentation as Calibration in Zero-Shot Topic Classification  <span class="pstatus">Under Review</span></div>
           <div class="pauthors">Bhattacharjee, Prithwiraj.</div>
           <div class="pvenue">ECTI Transactions on Computer and Information Technology (ECTI-CIT)</div>
         </div>
@@ -347,7 +343,7 @@ document.querySelectorAll('.pauthors').forEach(el => {
       <li>
         <span class="pnum">02</span>
         <div>
-          <div class="ptitle">A Label-Free Method for Choosing Per-Topic Decision Thresholds in Zero-Shot Multi-Label Text Classification <span class="solo-tag">Solo</span> <span class="pstatus">Under Review</span></div>
+          <div class="ptitle">A Label-Free Method for Choosing Per-Topic Decision Thresholds in Zero-Shot Multi-Label Text Classification  <span class="pstatus">Under Review</span></div>
           <div class="pauthors">Bhattacharjee, Prithwiraj.</div>
           <div class="pvenue">Journal of Research and Development </div>
         </div>
@@ -761,5 +757,10 @@ document.querySelectorAll('.pauthors').forEach(el => {
   </footer>
 
 </div>
+  <script>
+document.querySelectorAll('.pauthors').forEach(el => {
+  el.innerHTML = el.innerHTML.replace(/Bhattacharjee, Prithwiraj\./g, '<strong>Bhattacharjee, Prithwiraj.</strong>');
+});
+</script>
 </body>
 </html>
